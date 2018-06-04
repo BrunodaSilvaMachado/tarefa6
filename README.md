@@ -12,7 +12,7 @@ Em notação vetorial, o sistema linear acima pode ser escrito como: **F(x) = 0*
 
 ![eq:2](imagens/02.png)
 
-Um vetor X* = (x_1,x_2,...,x_n) que satisfaz **F(X*) = 0** é denominado *raiz do sistema não linear*
+Um vetor X* = (x_1,x_2,...,x_n) que satisfaz **F(X\*) = 0** é denominado *raiz do sistema não linear*
 
 # Metodos Utilizados
 
@@ -26,7 +26,7 @@ O método mais amplamente estudado e conhecido para resolver sistemas de equaç�
 
 O método se baseia em fazer uma escolha de uma aproximação inicial e atribuir em um vetor **x**, apos isso calcula-se **F(x)** e a matriz jacobiana **J(x)** associada a **F**. Depois resolvese o seguinte sistema linear
 
->	**J(x)y = -F(x)
+>	**J(x)y = -F(x)**
 
 onde o vetor **y** é a icognita a ser determinada após isso atualizamos o valor de **x** definindo **x = x + y**, e por fim verificamos se a norma de **y** é menor que a tolerancia permitida, caso seja o programa se encerra e o valor **x** calculado é a aproximação da solução do sistema. 
 
