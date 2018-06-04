@@ -2,7 +2,7 @@
 
 ## RESOLUÇÃO DE SISTEMAS NÃO LINEARES
 Uma equação que contenha uma expressão do tipo x^2, y^-2, x.y, √y/z, sen(x), exp(x+z), etc, é chamada não-linear em x, y, z, ..., porque ela não pode ser escrita como:
-						> ax + by + cz + ... = cte
+> 						ax + by + cz + ... = cte
 que é uma equação linear em x, y, z, ...
 Um sistema de *n* equações e *n* incógnitas x_1, x_2, ..., x_n é chamado de não-linear se uma ou mais equações é não-linear. Trazendo todos os termos diferentes de zero à esquerda de todas as equações, tem-se uma forma geral que pode ser usada para qualquer sistema não-linear.
 
