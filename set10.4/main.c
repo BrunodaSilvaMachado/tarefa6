@@ -2,6 +2,7 @@
 #include <linalg.h>
 
 #define DEBUG 0
+#define DEBUG1 1
 
 #define N 3
 #define MAX 1000
@@ -280,6 +281,20 @@ double *steepestDescent(double (*f[N])(), double x0[N])
         if(fabs(gn(f,x) - g1) < TOL)
             break;
 
+		#if DEBUG1
+		
+		printf("X^(%d) =  ",k);
+		for(int i = 0; i < N;i++)
+		{
+			printf("%lf\t",x[i]);
+		}
+		puts("\n");
+		
+		puts("Z(x)\n");
+		imprimeVetor(z,N);
+
+		#endif // DEBUG1
+		
         #if DEBUG
         puts("step 15");
         #endif // DEBUG
