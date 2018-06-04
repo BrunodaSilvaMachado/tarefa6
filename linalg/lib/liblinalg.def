@@ -1,0 +1,17 @@
+EXPORTS
+    compararMatriz @1
+    determinante @2
+    diferencaMatriz @3
+    imprimeMatriz @4
+    lerMatriz @5
+    matrizIdentidade @6
+    matrizInversa @7
+    matrizNula @8
+    matrizTransposta @9
+    metodoGauss @10
+    metodoJacobi @11
+    multiplicaMatriz @12
+    normalize @13
+    somaMatriz @14
+    substituicaoRegressiva @15
+    triangularSuperior @16
