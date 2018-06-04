@@ -45,11 +45,18 @@ int main(int argc, char **argv)
 	double eps = 1e-5,tol,norm,norma;
 	double (*equacao[N])() = {f1,f2,f3};
 
-	int i;
+	int i,c = 0;
 
 	do
 	{
-
+		printf("x^(%d) =  ",c);
+		for(i = 0; i < N;i++)
+		{
+			printf("%lf\t",xa[i]);
+		}
+		puts("\n");
+		c++;
+		
 		for(i = 0; i < N;i++)
 		{
 			norma = normalize(xa,N);
@@ -58,11 +65,12 @@ int main(int argc, char **argv)
 
 			norm = normalize(xa,N);
 		}
-
+		
 		tol = fabs(norm - norma)/norm;
 
 	}while(tol > eps);
 
+	puts("Resultado final");
 	for(i = 0; i < N;i++)
 	{
 		printf("x[%d] =  %lf\n",i + 1,xa[i]);
