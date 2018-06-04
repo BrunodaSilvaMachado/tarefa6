@@ -92,12 +92,13 @@ double max(double * v, int n)
 double **multplicaMatrizEscalar(double num, double **matriz, int lin,int col)
 {
     double **mat = (double**)malloc(lin*sizeof(double*));
-    for(int i = 0; i < lin; i++)
+	int i,j;
+    for( i = 0; i < lin; i++)
         mat[i] = (double*)malloc(col*sizeof(double));
 
-    for(int i = 0; i < lin; i++)
+    for( i = 0; i < lin; i++)
     {
-        for(int j = 0; j < col; j++)
+        for( j = 0; j < col; j++)
         {
             mat[i][j] = num * matriz[i][j];
         }
@@ -105,67 +106,6 @@ double **multplicaMatrizEscalar(double num, double **matriz, int lin,int col)
 
     return mat;
 }
-/*
-double *metodoQuasiNewtow(double (*equacao[N])(), double x[N])
-{
-    double eps = 1e-6; //precição
-	double **jf; // matriz jacobina
-	double **inv; // inversa matriz jacobina
-	double **fx;
-	double **s;
-	double *y;
-	int i,j;
-
-    jf = (double**)malloc(N * sizeof(double*));
-    fx = (double**)malloc(N * sizeof(double*));
-
-	for(i = 0; i < N; i++)
-	{
-		jf[i] = (double*)malloc(N * sizeof(double));
-		fx[i] = (double*)malloc(1 * sizeof(double));
-	}
-
-	do
-	{
-		for(i = 0; i < N; i++)
-		{
-			//
-			for(j = 0; j < N; j++)
-			{
-				jf[i][j] = diff(equacao[i],x,j);
-			}
-
-			//jf[i][N] = fx[i];
-			fx[i] = equacao[i](x);
-		}
-
-		inv = matrizInversa(jf,N,N);
-		s = multplicaMatrizEscalar(-1,multiplicaMatriz(inv,N,N,fx,N,1),N,1);
-
-
-
-		#if DEBUG
-		puts("F(x)\n");
-		imprimeRaiz(fx,N);
-
-		puts("J(x)\n");
-		imprimeMatriz(jf,N,N);
-		#endif // DEBUG
-		y = metodoGauss(jf,N,N + 1);
-
-		for(i = 0; i < N; i++)
-		{
-			x[i] += y[i];
-		}
-
-
-	}while(max(y,N) > eps);
-
-	return x;
-
-
-}*/
-
 
 double *metodoQuasiNewtow(double (*equacao[N])(), double x[N])
 {
@@ -173,7 +113,7 @@ double *metodoQuasiNewtow(double (*equacao[N])(), double x[N])
 	double **jf; // matriz jacobina aumentada
 	double fx[N];
 	double *y;
-	int i,j;
+	int i,j,c = 0;
 
     jf = (double**)malloc(N * sizeof(double*));
 
@@ -196,14 +136,21 @@ double *metodoQuasiNewtow(double (*equacao[N])(), double x[N])
 		}
 
 		#if DEBUG
+		
+		printf("X^(%d) =  ",c);
+		for(i = 0; i < N;i++)
+		{
+			printf("%lf\t",x[i]);
+		}
+		puts("\n");
+		c++;
+		
 		puts("F(x)\n");
 		imprimeRaiz(fx,N);
 
 		puts("J(x)\n");
 		imprimeMatriz(jf,N,N);
 
-		puts("X\n");
-		imprimeRaiz(x,N);
 		#endif // DEBUG
 		y = metodoGauss(jf,N,N + 1);
 
