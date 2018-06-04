@@ -176,7 +176,7 @@ double *metodoNewtow(double (*equacao[N])(), double (*jacobiano[N][N])(),double 
 	double **jf; // matriz jacobina aumentada
 	double fx[N];
 	double *y;
-	int i,j;
+	int i,j,c = 0;
 
 	x = malloc(N * sizeof(double));
 
@@ -203,6 +203,15 @@ double *metodoNewtow(double (*equacao[N])(), double (*jacobiano[N][N])(),double 
 		}
 
 		#if DEBUG
+		
+		printf("X^(%d) =  ",c);
+		for(i = 0; i < N;i++)
+		{
+			printf("%lf\t",x[i]);
+		}
+		puts("\n");
+		c++;
+		
 		puts("F(x)\n");
 		imprimeRaiz(fx,N);
 
